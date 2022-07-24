@@ -28,9 +28,9 @@ public class EmployeeService {
         return employeeRepository.findById(id).orElse(null);
     }
 
-    public Employee getEmployeeByName(String name) {
-        return employeeRepository.findByName(name);
-    }
+//    public Employee getEmployeeByName(String name) {
+//        return employeeRepository.findByName(name);
+//    }
 
     public boolean deleteEmployeeByID(int id) {
         Employee existingEmployee = employeeRepository.getReferenceById(id);

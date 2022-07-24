@@ -62,10 +62,42 @@ public class Employee {
     private Integer appointment_id;
 
 
+    public Integer getEmployeetype_id() {
+        return employeetype_id;
+    }
+
+    public void setEmployeetype_id(Integer employeetype_id) {
+        this.employeetype_id = employeetype_id;
+    }
+
+    public Integer getNok_id() {
+        return nok_id;
+    }
+
+    public void setNok_id(Integer nok_id) {
+        this.nok_id = nok_id;
+    }
+
+    public Integer getAppointment_id() {
+        return appointment_id;
+    }
+
+    public void setAppointment_id(Integer appointment_id) {
+        this.appointment_id = appointment_id;
+    }
+
+    public Integer getSalarystructure_id() {
+        return salarystructure_id;
+    }
+
+    public void setSalarystructure_id(Integer salarystructure_id) {
+        this.salarystructure_id = salarystructure_id;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "salarystructure_id")
+    @JoinColumn(name = "salarystructure_id", insertable=false, updatable=false)
     private SalaryStructure salaryStructure;
-    private double salarystructure_id;
+    private Integer salarystructure_id;
 
 
     public String getFirstname() {

@@ -26,9 +26,6 @@ public class EmployeeController {
 	public List<Employee> addAllEmployee(@RequestBody List<Employee> employees) {
 		return employeeService.addAllEmployees(employees);
 	}
-
-
-
 	// Get employee by Id
 	@GetMapping("/getByID/{id}")
 	public Employee getEmployeeByID(@PathVariable int id) {
@@ -41,10 +38,10 @@ public class EmployeeController {
 	}
 
 	// Get employee by Name
-	@GetMapping("/getByName/{name}")
-	public Employee getEmployeeByName(@PathVariable String name) {
-		return employeeService.getEmployeeByName(name);
-	}
+//	@GetMapping("/getByName/{name}")
+//	public Employee getEmployeeByName(@PathVariable String name) {
+//		return employeeService.getEmployeeByName(name);
+//	}
 	
 	
 	//Update Employee
