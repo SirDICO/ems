@@ -47,8 +47,25 @@ public class EmployeeService {
 		Employee existingEmployee = employeeRepository.getReferenceById(id);
 		if(existingEmployee != null) {
             existingEmployee.setEmail(employee.getEmail());
-            existingEmployee.setName(employee.getName());
-            existingEmployee.setSalary(employee.getSalary());
+            existingEmployee.setFirstname(employee.getFirstname());
+            existingEmployee.setLastname(employee.getLastname());
+            existingEmployee.setMiddlename(employee.getMiddlename());
+            existingEmployee.setGender(employee.getGender());
+            existingEmployee.setAppointment_id(employee.getAppointment_id());
+            existingEmployee.setDob(employee.getDob());
+            existingEmployee.setEmployeetype_id(employee.getEmployeetype_id());
+            existingEmployee.setDepartmentId(employee.getDepartmentId());
+            existingEmployee.setNok_id(employee.getNok_id());
+            existingEmployee.setInitials(employee.getInitials());
+            existingEmployee.setMaritalStatus(employee.getMaritalStatus());
+            existingEmployee.setPassport(employee.getPassport());
+            existingEmployee.setPhone(employee.getPhone());
+            existingEmployee.setPhoto(employee.getPhoto());
+            existingEmployee.setFileNumber(employee.getFileNumber());
+            existingEmployee.setResidentialAddress(employee.getResidentialAddress());
+            existingEmployee.setTitle(employee.getTitle());
+            existingEmployee.setStateOrigin(employee.getStateOrigin());
+            existingEmployee.setSalarystructure_id(employee.getSalarystructure_id());
 		  return employeeRepository.save(existingEmployee);
 
 		}
