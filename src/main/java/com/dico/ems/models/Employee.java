@@ -3,45 +3,154 @@ package com.dico.ems.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Formula;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "employee")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "email")
+
+    private String firstname;
+    private String lastname;
+    private String middlename;
+
+    @Formula(value = " concat(lastname,' ', middlename, ' ', firstname) ")
+    private String fullName;
+
+    private String residentialAddress;
+    private String maritalStatus;
+    private String phone;
+    private String stateOrigin;
+    private String passport;
+    private String photo;
+    private int DepartmentId;
     private String email;
-    @Column(name = "salary")
-    private int salary;
+    private String title;
+    private String initials;
+    private String fileNumber;
+    private String gender;
 
-    public int getId() {
-        return id;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private Date dob;
+
+    @ManyToOne
+    @JoinColumn(name = "employeetype_id", insertable=false, updatable=false)
+    private EmployeeType employeetype;
+    private Integer employeetype_id;
+
+    @ManyToOne
+    @JoinColumn(name = "nok_id", insertable=false, updatable=false)
+    private NextOfKin nextOfKin;
+    private Integer nok_id;
+
+    @ManyToOne
+    @JoinColumn(name = "appointment_id", insertable=false, updatable=false)
+    private Appointment appointment;
+    private Integer appointment_id;
+
+
+    @ManyToOne
+    @JoinColumn(name = "salarystructure_id")
+    private SalaryStructure salaryStructure;
+    private double salarystructure_id;
+
+
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getName() {
-        return name;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getMiddlename() {
+        return middlename;
+    }
+
+    public void setMiddlename(String middlename) {
+        this.middlename = middlename;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getResidentialAddress() {
+        return residentialAddress;
+    }
+
+    public void setResidentialAddress(String residentialAddress) {
+        this.residentialAddress = residentialAddress;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getStateOrigin() {
+        return stateOrigin;
+    }
+
+    public void setStateOrigin(String stateOrigin) {
+        this.stateOrigin = stateOrigin;
+    }
+
+    public String getPassport() {
+        return passport;
+    }
+
+    public void setPassport(String passport) {
+        this.passport = passport;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public int getDepartmentId() {
+        return DepartmentId;
+    }
+
+    public void setDepartmentId(int departmentId) {
+        DepartmentId = departmentId;
     }
 
     public String getEmail() {
@@ -52,16 +161,43 @@ public class Employee {
         this.email = email;
     }
 
-    public int getSalary() {
-        return salary;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
+    public String getInitials() {
+        return initials;
+    }
 
+    public void setInitials(String initials) {
+        this.initials = initials;
+    }
 
+    public String getFileNumber() {
+        return fileNumber;
+    }
 
+    public void setFileNumber(String fileNumber) {
+        this.fileNumber = fileNumber;
+    }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
 }
